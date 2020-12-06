@@ -16,6 +16,6 @@ func _ready() -> void:
 
 
 # Called when the bird hits the floor.
-func _on_Floor_body_entered(body: Node):
+func _on_Floor_body_entered(body: Node) -> void:
 	if body.has_method("die"):
 		body.die()

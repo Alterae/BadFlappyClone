@@ -16,6 +16,6 @@ func _ready() -> void:
 
 
 # Called when the bird collides with the pipe segment. 
-func _on_PipeSegment_body_entered(body: Node):
+func _on_PipeSegment_body_entered(body: Node) -> void:
 	if body.has_method("die"):  # Duck-typing go brrr.
 		body.die()
