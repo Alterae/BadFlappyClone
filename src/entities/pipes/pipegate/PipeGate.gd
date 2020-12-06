@@ -10,6 +10,8 @@ func _ready() -> void:
 	segment_top.position.y -= size_gap / 2
 	segment_bottom.position.y += size_gap / 2
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _process(_delta: float) -> void:
+	if position.x < -32:
+		queue_free() # Delete the gate when it leaves the screen.
