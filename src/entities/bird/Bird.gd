@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity := Vector2.ZERO
-var strength_jump := 200.0
+var strength_jump := 175.0
 var gravity := 9.8
 var dead := false
 
