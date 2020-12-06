@@ -1,6 +1,7 @@
 extends Node2D
 
 var size_gap := 32.0  # TODO: Set up random or difficulty/based variation.
+var speed := 100
 onready var segment_top := $TopSegment
 onready var segment_bottom := $BottomSegment
 
@@ -14,4 +15,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if position.x < -32:
-		queue_free() # Delete the gate when it leaves the screen.
+		queue_free()  # Delete the gate when it leaves the screen.
+
+
+func _physics_process(delta: float) -> void:
+	position.x -= speed * delta
