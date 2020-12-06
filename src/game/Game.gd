@@ -2,7 +2,7 @@ extends Node2D
 
 var position_spawn := Vector2(512, 135)
 var gate_preload := preload("res://entities/pipes/pipegate/PipeGate.tscn")
-var range_height := 100
+var height_max_offset := 50
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,5 +19,5 @@ func _ready() -> void:
 func _on_SpawnTimer_timeout() -> void:
 	var gate_instance := gate_preload.instance()
 	gate_instance.position = position_spawn
-	gate_instance.position.y += -(range_height / 2) + (randi() % range_height)
+	gate_instance.position.y += -(height_max_offset) + (randi() % (height_max_offset * 2))
 	add_child(gate_instance)
