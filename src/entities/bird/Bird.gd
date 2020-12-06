@@ -27,4 +27,5 @@ func _physics_process(_delta: float) -> void:
 # Kills the player when we hit something.
 func die():
 	dead = true
+	$Sprite.visible = false
 	emit_signal("died")
