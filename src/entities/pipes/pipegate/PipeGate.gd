@@ -1,7 +1,7 @@
 extends Node2D
 
 var size_gap := 32.0  # TODO: Set up random or difficulty/based variation.
-var speed := 100
+var speed := 10
 onready var segment_top := $TopSegment
 onready var segment_bottom := $BottomSegment
 
@@ -19,4 +19,4 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	position.x -= speed * delta
+	position.x = lerp(position.x, position.x - speed, speed * delta)
