@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entities/bird/Bird.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/floor/Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/pipes/pipegate/PipeGate.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/Game.gd" type="Script" id=4]
 
 [node name="Game" type="Node2D"]
@@ -13,5 +12,7 @@ position = Vector2( 128, 128 )
 
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 
-[node name="PipeGate" parent="." instance=ExtResource( 3 )]
-position = Vector2( 504, 136 )
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
