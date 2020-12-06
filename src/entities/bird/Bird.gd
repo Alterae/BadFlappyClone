@@ -25,6 +25,7 @@ func _physics_process(_delta: float) -> void:
 
 
 # Kills the player when we hit something.
+# TODO: Fix game stuttering for a second or two after player dies.
 func die() -> void:
 	dead = true
 	$Sprite.visible = false
