@@ -1,6 +1,6 @@
 extends Node2D
 
-var size_gap := 32.0  # TODO: Set up random or difficulty/based variation.
+var size_gap := 50.0  # TODO: Set up random or difficulty/based variation.
 var speed := 10
 
 
