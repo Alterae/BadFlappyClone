@@ -18,5 +18,5 @@ func _ready() -> void:
 func _on_SpawnTimer_timeout() -> void:
 	var gate_instance := gate_preload.instance()
 	gate_instance.position = position_spawn
-	gate_instance.position.y += randi() % 100 - 100  # SHOULD give a random offset.
+	gate_instance.position.y += -100 + (randi() % 200)  # SHOULD give a random offset.
 	add_child(gate_instance)
