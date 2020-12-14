@@ -18,3 +18,8 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	position.x = lerp(position.x, position.x - speed, speed * delta)
+
+
+func _on_ScoreDetector_body_entered(body: Node) -> void:
+	if body.has_method("score_increment"):
+		body.score_increment()

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/bird/Bird.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/floor/Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nanotype32.tres" type="DynamicFont" id=3]
 [ext_resource path="res://game/Game.gd" type="Script" id=4]
+[ext_resource path="res://Nanotype64.tres" type="DynamicFont" id=5]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -15,4 +17,59 @@ position = Vector2( 128, 128 )
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+margin_left = 12.0
+margin_right = 64.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.0
+margin_top = -65.0
+margin_right = 72.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOver"]
+margin_right = 144.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 5 )
+text = "Game Over"
+align = 1
+valign = 2
+
+[node name="Score" type="Label" parent="CanvasLayer/GameOver"]
+margin_top = 51.0
+margin_right = 144.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.960784, 0, 1 )
+text = "Score: 0"
+align = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/GameOver"]
+margin_top = 79.0
+margin_right = 144.0
+margin_bottom = 130.0
+custom_fonts/font = ExtResource( 3 )
+text = "Space to restart
+esc to quit"
+align = 1
+[connection signal="died" from="Bird" to="." method="_on_Bird_died"]
+[connection signal="scored" from="Bird" to="." method="_on_Bird_scored"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
