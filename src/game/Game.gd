@@ -35,4 +35,9 @@ func _on_Bird_died(score: int) -> void:
 	$CanvasLayer/Score.visible = false
 	$CanvasLayer/GameOver/Score.text = "Score: " + str(score)
 	$CanvasLayer/GameOver.visible = true
+	$CanvasLayer/GameOver/LockTimer.start()
+
+
+func _on_LockTimer_timeout() -> void:
+	$CanvasLayer/GameOver/Instructions.visible = true
 	gameover = true

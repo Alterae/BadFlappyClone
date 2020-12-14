@@ -25,6 +25,7 @@ func _physics_process(_delta: float) -> void:
 			velocity.y += gravity
 
 		velocity = move_and_slide(velocity)
+		rotation_degrees = velocity.y / 10
 
 
 # Kills the player when we hit something.
