@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="BadFlappyClone"
 run/main_scene="res://game/Game.tscn"
-config/icon="res://icon.png"
+config/icon="res://entities/bird/bird.png"
 
 [debug]
 
