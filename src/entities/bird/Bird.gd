@@ -18,26 +18,26 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	if not dead:
-		if Input.is_action_just_pressed("ui_accept"):
-			velocity.y = -strength_jump
-		else:
-			velocity.y += gravity
+	if not dead and Input.is_action_just_pressed("ui_accept"):
+		velocity.y = -strength_jump
+	else:
+		velocity.y += gravity
 
-		velocity = move_and_slide(velocity)
-		rotation_degrees = velocity.y / 10
+	velocity = move_and_slide(velocity)
+	rotation_degrees = velocity.y / 10
 
 
 # Kills the player when we hit something.
 # TODO: Fix game stuttering for a second or two after player dies.
 func die() -> void:
 	dead = true
-	$Sprite.visible = false
+#	$Sprite.visible = false
 	emit_signal("died", score)
-	queue_free()
+#	queue_free()
 
 
 # Increments the score.
 func score_increment() -> void:
-	score += 1
-	emit_signal("scored", score)
+	if not dead:
+		score += 1
+		emit_signal("scored", score)
