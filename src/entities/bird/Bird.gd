@@ -6,7 +6,7 @@ var gravity := 9.8
 var dead := false
 var score := 0
 
-signal died(score)  # TODO reset game on player death.
+signal died(score)  # TODO: reset game on player death.
 signal scored(score)
 
 
